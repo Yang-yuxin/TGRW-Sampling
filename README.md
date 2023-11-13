@@ -1,2 +1,2 @@
-g++ walk.cpp -o walk -fopenmp
+g++ walk.cpp -o walk -fopenmp  
 ./walk
