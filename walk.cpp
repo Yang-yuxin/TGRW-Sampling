@@ -5,6 +5,7 @@
 #include <cmath>
 #include <cassert>
 #include <algorithm>
+#include <fstream> 
 
 int binarySearch(const std::vector<std::pair<int, int> >& arr, int value) {
     int low = 0;
@@ -79,7 +80,7 @@ int reject_sampling(int* t, std::vector<std::pair<int, int> >& neighbors,
 
 }
 
-void random_walk(Graph& g, int l, int* walk) {
+void random_walk(Graph& g, int l, int* walk, std::ostream& output_stream, int id) {
     StdRandNumGenerator randgen = StdRandNumGenerator();
     int start = randgen.gen(g.v_num);
     walk[0] = start;
@@ -89,9 +90,11 @@ void random_walk(Graph& g, int l, int* walk) {
         // std::cout << walk << std::endl << p_t << std::endl << &(g.neighbor_list) << std::endl << &dynamic_prob_comp << std::endl << & randgen << std::endl;
         if (walk[i] == -1) {
             std::cout << "Walk ends in advance" << std::endl;
+            output_stream << "Walk ends in advance" << std::endl;
             break;
         }
-        std::cout << "Random walk " << i << " is " << walk[i] << " " << *p_t << std::endl;
+        std::cout << "WALKER ID " << id <<" : Random walk " << i << " is " << walk[i] << " " << *p_t << std::endl;
+        output_stream << "WALKER ID " << id <<" : Random walk " << i << " is " << walk[i] << " " << *p_t << std::endl;
     }
     // std::cout<< std::endl;
     delete p_t;
@@ -108,14 +111,17 @@ int main(){
     // num  = get_num(test, start, &end);
     // std::cout << "test num is " << num << std::endl;
     // std::cout << "end is " << end << std::endl;
-    const char* file = "karate.txt";
+    const char* file = "data/karate.txt";
     Graph g = Graph();
     g.load_graph(34, 0, file);
+
+    std::ofstream file_stream;                                                  
+    file_stream.open ("walks_out.txt"); 
     // g.print_info();
     // int tmp = binarySearch(g.neighbor_list[0], 150000);
     // std::cout << "Tmp " << tmp << std::endl;
     Timer timer;
-    int num_walk = 1000;
+    int num_walk = 8;
     int l_walk = 10;
     int** walks = new int*[num_walk];
     for (int i = 0; i < num_walk; i++){
@@ -123,8 +129,8 @@ int main(){
     }
     timer.restart();
     #pragma omp parallel for
-    for (int i = 0; i < num_walk; i++){
-        random_walk(g, l_walk, walks[i]);
+    for (int k = 0; k < num_walk; k++){
+        random_walk(g, l_walk, walks[k], file_stream, k);
     }
     float time_lapse = timer.duration();
     std::cout << "Time lapse: " << time_lapse << std::endl;
