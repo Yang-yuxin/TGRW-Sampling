@@ -80,12 +80,17 @@ int reject_sampling(int* t, std::vector<std::pair<int, int> >& neighbors,
 
 }
 
-void random_walk(Graph& g, int l, int* walk, std::ostream& output_stream, int id) {
+void random_walk(Graph& g, int l, int* walk, std::ostream& output_stream, int& id) {
     StdRandNumGenerator randgen = StdRandNumGenerator();
     int start = randgen.gen(g.v_num);
     walk[0] = start;
+    // std::cout << walk[0] << std::endl;
+    // std::cout << "ID : " <<id << std::endl;
     int* p_t = new int;
+    *p_t = 0;
     for (int i = 1; i < l; i++) {
+        // std::cout << "ID : " << id << std::endl;
+        // std::cout << "time : " << *p_t << std::endl;
         walk[i] = reject_sampling(p_t, g.neighbor_list[walk[i-1]], dynamic_prob_comp, randgen, 1);
         // std::cout << walk << std::endl << p_t << std::endl << &(g.neighbor_list) << std::endl << &dynamic_prob_comp << std::endl << & randgen << std::endl;
         if (walk[i] == -1) {
@@ -93,8 +98,8 @@ void random_walk(Graph& g, int l, int* walk, std::ostream& output_stream, int id
             output_stream << "Walk ends in advance" << std::endl;
             break;
         }
-        std::cout << "WALKER ID " << id <<" : Random walk " << i << " is " << walk[i] << " " << *p_t << std::endl;
-        output_stream << "WALKER ID " << id <<" : Random walk " << i << " is " << walk[i] << " " << *p_t << std::endl;
+        std::cout << "WALKER ID " << id <<" : Random walk " << i << " is " << walk[i] << " | " << *p_t << std::endl;
+        output_stream << "WALKER ID " << id <<" : Random walk " << i << " is " << walk[i] << " | " << *p_t << std::endl;
     }
     // std::cout<< std::endl;
     delete p_t;
@@ -114,15 +119,15 @@ int main(){
     const char* file = "data/karate.txt";
     Graph g = Graph();
     g.load_graph(34, 0, file);
-    
+
     std::ofstream file_stream;                                                  
     file_stream.open ("walks_out.txt"); 
     // g.print_info();
     // int tmp = binarySearch(g.neighbor_list[0], 150000);
     // std::cout << "Tmp " << tmp << std::endl;
     Timer timer;
-    int num_walk = 8;
-    int l_walk = 10;
+    int num_walk = 10;
+    int l_walk = 20;   //  (l_walk -1) walks - we count the vertices
     int** walks = new int*[num_walk];
     for (int i = 0; i < num_walk; i++){
         walks[i] = new int[l_walk];

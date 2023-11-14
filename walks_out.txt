@@ -1,63 +1,191 @@
-WALKER ID 5 Random walk 1 is 29 157062
-WALKER ID 5 Random walk 2 is 33 157062
-WALKER ID 6 Random walk 1 is 33 170091
-WALKER ID 6 Random walk 2 is 13 211970
-WALKER ID 7 Random walk 1 is 2 59677
-WALKER ID 4 Random walk 1 is 33 211970
-WALKER ID 2 Random walk 1 is 2 59677
-WALKER ID 2 Random walk 2 is 1 59677
-WALKER ID 2 Random walk 3 is 2 59677
-WALKER ID 2 Random walk 4 is 1 59677
-WALKER ID 7 Random walk 2 is 1 59677
-WALKER ID 4 Random walk 2 is 13 211970
-WALKER ID 3 Random walk 1 is 1 775154
-WALKER ID 5 Random walk 3 is 29 157062
-WALKER ID 5 Random walk 4 is 33 157062
-WALKER ID 7 Random walk 3 is 2 59677
-WALKER ID 7 Random walk 4 is 1 59677
-WALKER ID 3 Random walk 2 is 21 775154
-WALKER ID 4 Random walk 3 is 33 211970
-WALKER ID 2 Random walk 5 is 2 59677
-WALKER ID 5 Random walk 5 is 29 157062
-WALKER ID 6 Random walk 3 is 33 211970
-WALKER ID 1 Random walk 1 is 1 775154
-WALKER ID 2 Random walk 6 is 1 59677
-WALKER ID 5 Random walk 6 is 33 157062
-WALKER ID 6 Random walk 4 is 13 211970
-WALKER ID 3 Random walk 3 is 1 775154
-WALKER ID 4 Random walk 4 is 13 211970
-WALKER ID 4 Random walk 5 is 33 211970
-WALKER ID 5 Random walk 7 is 26 170091
-WALKER ID 5 Random walk 8 is 33 170091
-WALKER ID 3 Random walk 4 is 21 775154
-WALKER ID 7 Random walk 5 is 2 59677
-WALKER ID 6 Random walk 5 is 33 211970
-WALKER ID 3 Random walk 5 is 0 863664
-WALKER ID 5 Random walk 9 is 13 211970
-WALKER ID 2 Random walk 7 is 2 59677
-WALKER ID 4 Random walk 6 is 13 211970
-WALKER ID 7 Random walk 6 is 1 59677
-WALKER ID 1 Random walk 2 is 21 775154
-WALKER ID 2 Random walk 8 is 1 59677
-WALKER ID 4 Random walk 7 is 33 211970
-WALKER ID 7 Random walk 7 is 2 59677
-WALKER ID 1 Random walk 3 is 1 775154
-WALKER ID 2 Random walk 9 is 2 59677
-WALKER ID 4 Random walk 8 is 13 211970
-WALKER ID 7 Random walk 8 is 1 59677
-WALKER ID 3 Random walk 6 is 31 909878
-WALKER ID 1 Random walk 4 is 13 783335
-WALKER ID 6 Random walk 6 is 13 211970
-WALKER ID 4 Random walk 9 is 33 211970
-WALKER ID 7 Random walk 9 is 2 59677
-WALKER ID 3 Random walk 7 is 0 909878
-WALKER ID 1 Random walk 5 is 1 783335
-WALKER ID 6 Random walk 7 is 33 211970
-WALKER ID 1 Random walk 6 is 13 783335
-WALKER ID 3 Random walk 8 is 31 909878
-WALKER ID 6 Random walk 8 is 13 211970
-WALKER ID 3 Random walk 9 is 0 909878
-WALKER ID 1 Random walk 7 is 1 783335
-WALKER ID 1 Random walk 8 is 13 783335
-WALKER ID 1 Random walk 9 is 1 783335
-WALKER ID 6 Random walk 9 is 33 211970
+WALKER ID 5 : Random walk 1 is 16 | 25124
+WALKER ID 0 : Random walk 1 is 0 | 172845
+WALKER ID 6 : Random walk 1 is 30 | 575807
+WALKER ID 7 : Random walk 1 is 32 | 23016
+WALKER ID 7 : Random walk 1 is 32 | 23016
+WALKER ID 9 : Random walk 1 is 32 | 173304
+WALKER ID 8 : Random walk 1 is 26 | 241080
+WALKER ID 2 : Random walk 1 is 27 | 103037
+WALKER ID 2 : Random walk 2 is 33 | 103037
+WALKER ID 5 : Random walk 2 is 6 | 25124
+WALKER ID 8 : Random walk 2 is 29 | 241080
+WALKER ID 4 : Random walk 1 is 33 | 103037
+WALKER ID 6 : Random walk 2 is 8 | 575807
+WALKER ID 9 : Random walk 2 is 31 | 173304
+WALKER ID 5 : Random walk 3 is 16 | 25124
+WALKER ID 8 : Random walk 3 is 26 | 241080
+WALKER ID 2 : Random walk 3 is 27 | 103037
+WALKER ID 6 : Random walk 3 is 30 | 575807
+WALKER ID 7 : Random walk 2 is 18 | 267445
+WALKER ID 5 : Random walk 4 is 5 | 69196
+WALKER ID 0 : Random walk 2 is 3 | 172845
+WALKER ID 2 : Random walk 4 is 33 | 103037
+WALKER ID 2 : Random walk 5 is 27 | 103037
+WALKER ID 2 : Random walk 6 is 33 | 103037
+WALKER ID 2 : Random walk 7 is 13 | 211970
+WALKER ID 2 : Random walk 8 is 33 | 211970
+WALKER ID 2 : Random walk 9 is 14 | 350339
+WALKER ID 5 : Random walk 5 is 16 | 69196
+WALKER ID 0 : Random walk 3 is 0 | 172845
+WALKER ID 8 : Random walk 4 is 29 | 241080
+WALKER ID 8 : Random walk 5 is 26 | 241080
+WALKER ID 2 : Random walk 10 is 33 | 350339
+WALKER ID 2 : Random walk 11 is 14 | 350339
+WALKER ID 2 : Random walk 12 is 33 | 350339
+WALKER ID 2 : Random walk 13 is 14 | 350339
+WALKER ID 2 : Random walk 14 is 33 | 350339
+WALKER ID 2 : Random walk 15 is 14 | 350339
+WALKER ID 2 : Random walk 16 is 33 | 350339
+WALKER ID 2 : Random walk 17 is 14 | 350339
+WALKER ID 2 : Random walk 18 is 33 | 350339
+WALKER ID 5 : Random walk 6 is 5 | 69196
+WALKER ID 5 : Random walk 7 is 16 | 69196
+WALKER ID 5 : Random walk 8 is 5 | 69196
+WALKER ID 6 : Random walk 4 is 8 | 575807
+WALKER ID 4 : Random walk 2 is 29 | 157062
+WALKER ID 9 : Random walk 3 is 32 | 173304
+WALKER ID 4 : Random walk 3 is 33 | 157062
+WALKER ID 7 : Random walk 3 is 32 | 267445
+WALKER ID 0 : Random walk 4 is 3 | 172845
+WALKER ID 5 : Random walk 9 is 16 | 69196
+WALKER ID 2 : Random walk 19 is 14 | 350339
+WALKER ID 9 : Random walk 4 is 18 | 267445
+WALKER ID 9 : Random walk 5 is 32 | 267445
+WALKER ID 9 : Random walk 6 is 18 | 267445
+WALKER ID 5 : Random walk 10 is 5 | 69196
+WALKER ID 3 : Random walk 1 is 33 | 441829
+WALKER ID 3 : Random walk 2 is 9 | 441829
+WALKER ID 0 : Random walk 5 is 0 | 172845
+WALKER ID 4 : Random walk 4 is 26 | 170091
+WALKER ID 8 : Random walk 6 is 29 | 241080
+WALKER ID 7 : Random walk 4 is 18 | 267445
+WALKER ID 9 : Random walk 7 is 32 | 267445
+WALKER ID 5 : Random walk 11 is 10 | 126820
+WALKER ID 8 : Random walk 7 is 26 | 241080
+WALKER ID 6 : Random walk 5 is 30 | 575807
+WALKER ID 0 : Random walk 6 is 6 | 216081
+WALKER ID 0 : Random walk 7 is 4 | 227547
+WALKER ID 0 : Random walk 8 is 6 | 227547
+WALKER ID 7 : Random walk 5 is 32 | 267445
+WALKER ID 7 : Random walk 6 is 18 | 267445
+WALKER ID 6 : Random walk 6 is 8 | 575807
+WALKER ID 9 : Random walk 8 is 15 | 348872
+WALKER ID 9 : Random walk 9 is 32 | 348872
+WALKER ID 9 : Random walk 10 is 15 | 348872
+WALKER ID 9 : Random walk 11 is 32 | 348872
+WALKER ID 9 : Random walk 12 is 15 | 348872
+WALKER ID 9 : Random walk 13 is 32 | 348872
+WALKER ID 0 : Random walk 9 is 4 | 227547
+WALKER ID 0 : Random walk 10 is 6 | 227547
+WALKER ID 4 : Random walk 5 is 33 | 170091
+WALKER ID 6 : Random walk 7 is 30 | 575807
+WALKER ID 9 : Random walk 14 is 2 | 392879
+WALKER ID 7 : Random walk 7 is 32 | 267445
+WALKER ID 0 : Random walk 11 is 4 | 227547
+WALKER ID 4 : Random walk 6 is 26 | 170091
+WALKER ID 6 : Random walk 8 is 8 | 575807
+WALKER ID 6 : Random walk 9 is 30 | 575807
+WALKER ID 6 : Random walk 10 is 8 | 575807
+WALKER ID 0 : Random walk 12 is 6 | 227547
+WALKER ID 4 : Random walk 7 is 33 | 170091
+WALKER ID 7 : Random walk 8 is 30 | 364336
+WALKER ID 5 : Random walk 12 is 5 | 126820
+WALKER ID 8 : Random walk 8 is 29 | 241080
+WALKER ID 3 : Random walk 3 is 33 | 441829
+WALKER ID 4 : Random walk 8 is 13 | 211970
+WALKER ID 9 : Random walk 15 is 32 | 392879
+WALKER ID 7 : Random walk 9 is 1 | 393064
+WALKER ID 8 : Random walk 9 is 26 | 241080
+WALKER ID 0 : Random walk 13 is 4 | 227547
+WALKER ID 0 : Random walk 14 is 6 | 227547
+WALKER ID 9 : Random walk 16 is 2 | 392879
+WALKER ID 7 : Random walk 10 is 30 | 393064
+WALKER ID 7 : Random walk 11 is 1 | 393064
+WALKER ID 7 : Random walk 12 is 30 | 393064
+WALKER ID 0 : Random walk 15 is 4 | 227547
+WALKER ID 6 : Random walk 11 is 30 | 575807
+WALKER ID 5 : Random walk 13 is 10 | 126820
+WALKER ID 3 : Random walk 4 is 15 | 545505
+WALKER ID 7 : Random walk 13 is 1 | 393064
+WALKER ID 8 : Random walk 10 is 29 | 241080
+WALKER ID 6 : Random walk 12 is 8 | 575807
+WALKER ID 6 : Random walk 13 is 30 | 575807
+WALKER ID 3 : Random walk 5 is 33 | 545505
+WALKER ID 7 : Random walk 14 is 30 | 393064
+WALKER ID 9 : Random walk 17 is 32 | 392879
+WALKER ID 0 : Random walk 16 is 6 | 227547
+WALKER ID 6 : Random walk 14 is 8 | 575807
+WALKER ID 3 : Random walk 6 is 15 | 545505
+WALKER ID 7 : Random walk 15 is 1 | 393064
+WALKER ID 7 : Random walk 16 is 17 | 394261
+WALKER ID 0 : Random walk 17 is 4 | 227547
+WALKER ID 5 : Random walk 14 is 4 | 159114
+WALKER ID 4 : Random walk 9 is 33 | 211970
+WALKER ID 9 : Random walk 18 is 2 | 392879
+WALKER ID 7 : Random walk 17 is 1 | 394261
+WALKER ID 0 : Random walk 18 is 6 | 227547
+WALKER ID 5 : Random walk 15 is 10 | 159114
+WALKER ID 4 : Random walk 10 is 13 | 211970
+WALKER ID 6 : Random walk 15 is 30 | 575807
+WALKER ID 3 : Random walk 7 is 33 | 545505
+WALKER ID 3 : Random walk 8 is 15 | 545505
+WALKER ID 9 : Random walk 19 is 8 | 491359
+WALKER ID 7 : Random walk 18 is 17 | 394261
+WALKER ID 6 : Random walk 16 is 8 | 575807
+WALKER ID 0 : Random walk 19 is 4 | 227547
+WALKER ID 3 : Random walk 9 is 33 | 545505
+WALKER ID 7 : Random walk 19 is 1 | 394261
+WALKER ID 5 : Random walk 16 is 4 | 159114
+WALKER ID 8 : Random walk 11 is 26 | 241080
+WALKER ID 6 : Random walk 17 is 30 | 575807
+WALKER ID 4 : Random walk 11 is 33 | 211970
+WALKER ID 5 : Random walk 17 is 10 | 159114
+WALKER ID 8 : Random walk 12 is 29 | 241080
+WALKER ID 6 : Random walk 18 is 8 | 575807
+WALKER ID 4 : Random walk 12 is 13 | 211970
+WALKER ID 5 : Random walk 18 is 4 | 159114
+WALKER ID 5 : Random walk 19 is 10 | 159114
+WALKER ID 3 : Random walk 10 is 15 | 545505
+WALKER ID 3 : Random walk 11 is 33 | 545505
+WALKER ID 8 : Random walk 13 is 26 | 241080
+WALKER ID 8 : Random walk 14 is 29 | 241080
+WALKER ID 6 : Random walk 19 is 30 | 575807
+WALKER ID 4 : Random walk 13 is 33 | 211970
+WALKER ID 8 : Random walk 15 is 26 | 241080
+WALKER ID 8 : Random walk 16 is 29 | 241080
+WALKER ID 4 : Random walk 14 is 13 | 211970
+WALKER ID 4 : Random walk 15 is 33 | 211970
+WALKER ID 3 : Random walk 12 is 15 | 545505
+WALKER ID 1 : Random walk 1 is 23 | 195999
+WALKER ID 4 : Random walk 16 is 13 | 211970
+WALKER ID 1 : Random walk 2 is 29 | 195999
+WALKER ID 1 : Random walk 3 is 26 | 241080
+WALKER ID 8 : Random walk 17 is 26 | 241080
+WALKER ID 8 : Random walk 18 is 29 | 241080
+WALKER ID 4 : Random walk 17 is 33 | 211970
+WALKER ID 3 : Random walk 13 is 33 | 545505
+WALKER ID 3 : Random walk 14 is 15 | 545505
+WALKER ID 3 : Random walk 15 is 33 | 545505
+WALKER ID 3 : Random walk 16 is 15 | 545505
+WALKER ID 3 : Random walk 17 is 33 | 545505
+WALKER ID 4 : Random walk 18 is 13 | 211970
+WALKER ID 4 : Random walk 19 is 33 | 211970
+WALKER ID 3 : Random walk 18 is 15 | 545505
+WALKER ID 3 : Random walk 19 is 33 | 545505
+WALKER ID 8 : Random walk 19 is 26 | 241080
+WALKER ID 1 : Random walk 4 is 29 | 241080
+WALKER ID 1 : Random walk 5 is 26 | 241080
+WALKER ID 1 : Random walk 6 is 29 | 241080
+WALKER ID 1 : Random walk 7 is 26 | 241080
+WALKER ID 1 : Random walk 8 is 29 | 241080
+WALKER ID 1 : Random walk 9 is 26 | 241080
+WALKER ID 1 : Random walk 10 is 29 | 241080
+WALKER ID 1 : Random walk 11 is 26 | 241080
+WALKER ID 1 : Random walk 12 is 29 | 241080
+WALKER ID 1 : Random walk 13 is 26 | 241080
+WALKER ID 1 : Random walk 14 is 29 | 241080
+WALKER ID 1 : Random walk 15 is 26 | 241080
+WALKER ID 1 : Random walk 16 is 29 | 241080
+WALKER ID 1 : Random walk 17 is 26 | 241080
+WALKER ID 1 : Random walk 18 is 29 | 241080
+WALKER ID 1 : Random walk 19 is 26 | 241080
