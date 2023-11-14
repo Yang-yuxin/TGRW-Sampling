@@ -114,6 +114,7 @@ int main(){
     const char* file = "data/karate.txt";
     Graph g = Graph();
     g.load_graph(34, 0, file);
+    
     std::ofstream file_stream;                                                  
     file_stream.open ("walks_out.txt"); 
     // g.print_info();
