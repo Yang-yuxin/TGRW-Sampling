@@ -7,6 +7,7 @@
 #include <cassert>
 #include <algorithm>
 #include "type.hpp"
+#include "constants.hpp"
 
 int get_num(std::string s, int start, int* end){
     int len_s = s.size();
@@ -32,10 +33,13 @@ int get_num(std::string s, int start, int* end){
 
 class Graph 
 {
+private:
+    std::vector<std::pair<int, int> >* neighbor_list;
 public:
     vertex_id_t v_num;
     edge_id_t e_num;
-    std::vector<std::pair<int, int> >* neighbor_list;
+    
+    void* precomputed;
     int* deg_list;
     Graph() {
         this->v_num = 0;
@@ -49,6 +53,11 @@ public:
             delete[] this->deg_list;
         }
     }
+    
+    const std::vector<std::pair<int, int> >* get_neighbor_list(){
+        return this->neighbor_list;
+    }
+
     void print_info(){
         std::cout << "Graph node number: " << this->v_num << std::endl;
         std::cout << "Graph edge number: " << this->e_num << std::endl;
@@ -59,10 +68,26 @@ public:
             }
         }
     }
+
+    bool check_graph(){
+        bool error = 0;
+        for (int i = 0; i < this->v_num;i++){
+            for (int j = 0; j < neighbor_list[i].size(); j++) {
+                if (this->neighbor_list[i][j].first < 0 || this->neighbor_list[i][j].first >= this->v_num){
+                    error = 1;
+                    if (DEBUG) std::cout << "Node " << i << " has a bad neighbor " << j <<std::endl;
+                }
+            }
+        }
+        if (DEBUG && error) std::cout << "Graph error " << error << std::endl;
+        return error;
+    }
+
     void load_graph(vertex_id_t v_num_param, bool undirected, const char* graph_path){
         this->v_num = v_num_param;
         this->neighbor_list = new std::vector<std::pair<int, int> >[v_num_param];
         this->deg_list = new int[v_num_param];
+        if (DEBUG) std::cout << "Allocated Graph Memory" << std::endl;
         
         std::ifstream f(graph_path);
         std::string line;
@@ -90,6 +115,7 @@ public:
             this->deg_list[s]++;
             this->neighbor_list[s].push_back(std::pair<int, int>(t, timestamp));
         }
+        if (DEBUG) std::cout << "Loaded Graph " << std::endl;
         this->e_num = e_num;
         struct sort_pred {
             bool operator()(const std::pair<int,int> &left, const std::pair<int,int> &right) {
@@ -99,7 +125,7 @@ public:
         for (int i = 0; i < v_num_param; i++){
             std::sort(this->neighbor_list[i].begin(), this->neighbor_list[i].end(), sort_pred());
         }
-        // delete[] pos_list;
-
+        if (DEBUG) std::cout << "Sorted Graph " << std::endl;
+        if (DEBUG) this->check_graph();
     }
 };

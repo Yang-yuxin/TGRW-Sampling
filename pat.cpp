@@ -7,16 +7,18 @@
 #include <algorithm>
 #include <fstream> 
 
-float dynamic_prob_comp(int t_u, int t_neigh){
+
+float dynamic_prob_comp(int t_u, int t_neigh, float alpha){
     assert(t_neigh >= t_u);
     // std::cout << t_neigh << " " << t_u << std::endl;
-    return std::exp((t_u - t_neigh) / ALPHA);
+    return std::exp((t_u - t_neigh) / alpha);
 }
 
-int reject_sampling(int* t, const std::vector<std::pair<int, int> >& neighbors, 
+int reject_sampling(int* t, std::vector<std::pair<int, int> >& neighbors, 
                     func prob, StdRandNumGenerator& randgen, bool time_decay = true) {
+    float alpha = 50000.0;
     // find neighbors of u with timestamp > t
-    int ok_neigh = binarySearchPair(neighbors, *t, 0, neighbors.size() - 1);
+    int ok_neigh = binarySearch(neighbors, *t, 0, neighbors.size() - 1);
     // std::cout << "Closest available neighbor starts from " << ok_neigh << std::endl;
     if (ok_neigh >= neighbors.size()) {
         return -1;
@@ -25,7 +27,8 @@ int reject_sampling(int* t, const std::vector<std::pair<int, int> >& neighbors,
     // bool succeed = false;
     int t_latest = neighbors[ok_neigh].second;
     
-    float prob_upperbound = prob(*t, t_latest);
+    // compute prob upperbound (just assume the latest neighbor is sampled with the largest probability)
+    float prob_upperbound = prob(*t, t_latest, alpha);
     // std::cout << "now time and latest neighbor time " << *t << " " << t_latest << std::endl;
     int candidate = -1;
     while (true){
@@ -38,7 +41,7 @@ int reject_sampling(int* t, const std::vector<std::pair<int, int> >& neighbors,
         // compute accept probability
         // std::cout << "Candidate neighbor time: " << t_candidate << std::endl;
         assert (t_candidate >= t_latest);
-        float prob_ac = prob(*t, t_candidate) / prob_upperbound;
+        float prob_ac = prob(*t, t_candidate, alpha) / prob_upperbound;
         // std::cout << prob_upperbound << " " << prob(*t, t_candidate, alpha) << std::endl;
         // std::cout << "Accepted prob: " << prob_ac << std::endl;
         if (randgen.gen_float(1.0) < prob_ac) {
@@ -61,15 +64,15 @@ void random_walk(Graph& g, int l, int* walk, std::ostream& output_stream, int& i
     for (int i = 1; i < l; i++) {
         // std::cout << "ID : " << id << std::endl;
         // std::cout << "time : " << *p_t << std::endl;
-        walk[i] = reject_sampling(p_t, g.get_neighbor_list()[walk[i-1]], dynamic_prob_comp, randgen, 1);
+        walk[i] = reject_sampling(p_t, g.neighbor_list[walk[i-1]], dynamic_prob_comp, randgen, 1);
         // std::cout << walk << std::endl << p_t << std::endl << &(g.neighbor_list) << std::endl << &dynamic_prob_comp << std::endl << & randgen << std::endl;
         if (walk[i] == -1) {
-            if (LOG) std::cout << "Walk ends in advance" << std::endl;
-            if (LOG) output_stream << "Walk ends in advance" << std::endl;
+            std::cout << "Walk ends in advance" << std::endl;
+            output_stream << "Walk ends in advance" << std::endl;
             break;
         }
-        if (LOG) std::cout << "WALKER ID " << id <<" : Random walk " << i << " is " << walk[i] << " | " << *p_t << std::endl;
-        if (LOG) output_stream << "WALKER ID " << id <<" : Random walk " << i << " is " << walk[i] << " | " << *p_t << std::endl;
+        std::cout << "WALKER ID " << id <<" : Random walk " << i << " is " << walk[i] << " | " << *p_t << std::endl;
+        output_stream << "WALKER ID " << id <<" : Random walk " << i << " is " << walk[i] << " | " << *p_t << std::endl;
     }
     // std::cout<< std::endl;
     delete p_t;
@@ -102,8 +105,6 @@ int main(){
     for (int i = 0; i < num_walk; i++){
         walks[i] = new int[l_walk];
     }
-    omp_set_dynamic(0);     // Explicitly disable dynamic teams
-    omp_set_num_threads(64); // Use 4 threads for all consecutive parallel regions
     timer.restart();
     #pragma omp parallel for
     for (int k = 0; k < num_walk; k++){

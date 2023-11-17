@@ -4,6 +4,14 @@
 #include <chrono>
 #include "type.hpp"
 
+
+bool isClose(float a, float b) {
+    if ((a > b && a - b < 1e-5) || (a < b && b - a < 1e-5)){
+        return true;
+    } 
+    return false;
+}
+
 class RandNumGenerator
 {
 public:
@@ -34,6 +42,9 @@ public:
     }
     float gen_float(float upper_bound)
     {
+        if (isClose(upper_bound, 0.0)) {
+            return 0.0;
+        }
         std::uniform_real_distribution<float> dis(0.0, upper_bound);
         return dis(*mt);
     }
@@ -59,3 +70,62 @@ public:
         return val.count();
     }
 };
+
+int binarySearchPair(const std::vector<std::pair<int, int>>& arr, int value, int low, int high) {
+    // int low = 0;
+    // int high = arr.size() - 1;
+    int result = -1; // Start with -1 to indicate not found
+
+    while (low <= high) {
+        int mid = low + (high - low) / 2;
+
+        if (arr[mid].second <= value) {
+            result = mid;  // Update result to current mid (potential answer)
+            low = mid + 1; // Move to the right half to find larger index
+        } else {
+            high = mid - 1; // Move to the left half
+        }
+        // std::cout << "Low: " << low << " High: " << high << std::endl;
+    }
+
+    return result; // Returns -1 if not found
+    // if (result != -1 && arr[result].second == value){
+    //     return result;
+    // }
+    // // std::cout << "Low " << low << " High " << high << std::endl;
+    // // assert(low == arr.size() || arr[low].second > value);
+    // assert(low == 0 || arr[low-1].second < value);
+    // // assert(low < arr.size());
+    // return low;
+}
+
+
+
+int binarySearch(const std::vector<float>& arr, float value, int low, int high) {
+    // int low = 0;
+    // int high = arr.size() - 1;
+    int result = -1; // Start with -1 to indicate not found
+    while (low <= high) {
+        int mid = low + (high - low) / 2;
+
+        if (arr[mid] <= value) {
+            result = mid;  // Update result to current mid (potential answer)
+            low = mid+1; // Move to the right half to find larger index
+        } else {
+            high = mid-1; // Move to the left half
+        }
+        // std::cout << "Low: " << low << " High: " << high << std::endl;
+    }
+
+    return result; // Returns -1 if not found
+    // if (result != -1){
+    //     return result;
+    // }
+    // return -1;
+    // std::cout << "Low " << low << " High " << high << std::endl;
+    // std::cout << "arr size " << arr.size() << " value " << value << std::endl;
+    // // assert(low == arr.size() || arr[low] > value);
+    // assert(low == 0 || arr[low-1] < value);
+    // // assert(low < arr.size());
+    // return low;
+}
