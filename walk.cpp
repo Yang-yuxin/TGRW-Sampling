@@ -76,7 +76,7 @@ void random_walk(Graph& g, int l, int* walk, std::ostream& output_stream, int& i
 
 }
 
-int main(){
+int main(int argc, char *argv[]){
     // std::string test = "233 this is 244 a test";
     // int end;
     // int num  = get_num(test, 0, &end);
@@ -86,9 +86,10 @@ int main(){
     // num  = get_num(test, start, &end);
     // std::cout << "test num is " << num << std::endl;
     // std::cout << "end is " << end << std::endl;
-    const char* file = "data/karate.txt";
+const char* file = "data/out.opsahl-ucsocial";
     Graph g = Graph();
-    g.load_graph(34, 0, file);
+    g.load_graph(1900, 0, file);
+    g.check_graph();
 
     std::ofstream file_stream;                                                  
     file_stream.open ("walks_out.txt"); 
@@ -96,21 +97,30 @@ int main(){
     // int tmp = binarySearch(g.neighbor_list[0], 150000);
     // std::cout << "Tmp " << tmp << std::endl;
     Timer timer;
-    int num_walk = 10;
-    int l_walk = 20;   //  (l_walk -1) walks - we count the vertices
+    assert(argc >= 5);
+    int num_walk = std::stoi(argv[1]);
+    int walk_length = std::stoi(argv[2]);
+    int trials = std::stoi(argv[3]);
+    int num_threads = std::stoi(argv[4]);
+    int l_walk = walk_length + 1;   //  (l_walk -1) walks - we count the vertices
     int** walks = new int*[num_walk];
     for (int i = 0; i < num_walk; i++){
         walks[i] = new int[l_walk];
     }
     omp_set_dynamic(0);     // Explicitly disable dynamic teams
-    omp_set_num_threads(64); // Use 4 threads for all consecutive parallel regions
-    timer.restart();
-    #pragma omp parallel for
-    for (int k = 0; k < num_walk; k++){
-        random_walk(g, l_walk, walks[k], file_stream, k);
+    omp_set_num_threads(num_threads); // Use 4 threads for all consecutive parallel regions
+    float total_time = 0.0;
+    for (int tr = 0; tr < trials; tr++){    
+        timer.restart();
+        #pragma omp parallel for
+        for (int k = 0; k < num_walk; k++){
+            random_walk(g, l_walk, walks[k], file_stream, k);
+        }
+    total_time += timer.duration();
+
     }
-    float time_lapse = timer.duration();
-    std::cout << "Time lapse: " << time_lapse << std::endl;
+    // float time_lapse = timer.duration();
+    std::cout << "Time lapse: " << total_time / trials << std::endl;
     for (int i = 0; i < num_walk; i++){
         delete[] walks[i];
     }
